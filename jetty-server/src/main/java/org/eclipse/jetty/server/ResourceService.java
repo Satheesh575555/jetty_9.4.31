@@ -234,7 +234,7 @@ public class ResourceService
             // Find the content
             content = _contentFactory.getContent(pathInContext, response.getBufferSize());
             if (LOG.isDebugEnabled())
-                LOG.info("content={}", content);
+                LOG.debug("content={}", content);
 
             // Not found?
             if (content == null || !content.getResource().exists())
@@ -424,7 +424,7 @@ public class ResourceService
                 return;
             }
 
-            RequestDispatcher dispatcher = context.getRequestDispatcher(welcome);
+            RequestDispatcher dispatcher = context.getRequestDispatcher(URIUtil.encodePath(welcome));
             if (dispatcher != null)
             {
                 // Forward to the index
